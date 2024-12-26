@@ -1,9 +1,1 @@
-# General
-.DS_Store
-Desktop.ini
-
-# Thumbnail cache files
-._*
-Thumbs.db
-
 node_modules

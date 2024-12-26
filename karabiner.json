@@ -13,27 +13,16 @@
               {
                 "description": "Caps Lock -> Hyper Key",
                 "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
+                  "key_code": "caps_lock"
                 },
                 "to": [
                   {
-                    "set_variable": {
-                      "name": "hyper",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "hyper",
-                      "value": 0
-                    }
+                    "key_code": "left_shift",
+                    "modifiers": [
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
                   }
                 ],
                 "to_if_alone": [
@@ -46,294 +35,6 @@
             ]
           },
           {
-            "description": "Hyper Key + spacebar",
-            "manipulators": [
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
-                  }
-                ],
-                "description": "Open raycast://extensions/stellate/mxstbr-commands/create-notion-todo",
-                "type": "basic",
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_w",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_v",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_c",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_r",
-                    "value": 0
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Hyper Key sublayer \"b\"",
-            "manipulators": [
-              {
-                "description": "Toggle Hyper sublayer b",
-                "type": "basic",
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "hyper_sublayer_b",
-                      "value": 0
-                    }
-                  }
-                ],
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "hyper_sublayer_b",
-                      "value": 1
-                    }
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_w",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_v",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_c",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_r",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://twitter.com"
-                  }
-                ],
-                "description": "Open https://twitter.com",
-                "type": "basic",
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://mxstbr.com/cal"
-                  }
-                ],
-                "description": "Open https://mxstbr.com/cal",
-                "type": "basic",
-                "from": {
-                  "key_code": "p",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://news.ycombinator.com"
-                  }
-                ],
-                "description": "Open https://news.ycombinator.com",
-                "type": "basic",
-                "from": {
-                  "key_code": "y",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://facebook.com"
-                  }
-                ],
-                "description": "Open https://facebook.com",
-                "type": "basic",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://reddit.com"
-                  }
-                ],
-                "description": "Open https://reddit.com",
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open https://hashnode.com/draft"
-                  }
-                ],
-                "description": "Open https://hashnode.com/draft",
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
             "description": "Hyper Key sublayer \"o\"",
             "manipulators": [
               {
@@ -342,8 +43,11 @@
                 "from": {
                   "key_code": "o",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -364,16 +68,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_w",
@@ -398,35 +92,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a '1Password.app'"
-                  }
-                ],
-                "description": "Open -a '1Password.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "1",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
                   }
                 ]
               },
@@ -441,7 +106,7 @@
                 "from": {
                   "key_code": "g",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -457,15 +122,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Notion Calendar.app'"
+                    "shell_command": "open -a 'Cron.app'"
                   }
                 ],
-                "description": "Open -a 'Notion Calendar.app'",
+                "description": "Open -a 'Cron.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "c",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -481,15 +146,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Zed.app'"
+                    "shell_command": "open -a 'Visual Studio Code.app'"
                   }
                 ],
-                "description": "Open -a 'Zed.app'",
+                "description": "Open -a 'Visual Studio Code.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "v",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -513,7 +178,7 @@
                 "from": {
                   "key_code": "d",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -537,7 +202,7 @@
                 "from": {
                   "key_code": "s",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -561,7 +226,7 @@
                 "from": {
                   "key_code": "e",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -585,7 +250,7 @@
                 "from": {
                   "key_code": "n",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -609,7 +274,7 @@
                 "from": {
                   "key_code": "t",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -625,15 +290,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
+                    "shell_command": "open https://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
                   }
                 ],
-                "description": "Open notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026",
+                "description": "Open https://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026",
                 "type": "basic",
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -657,7 +322,7 @@
                 "from": {
                   "key_code": "z",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -673,15 +338,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Reflect.app'"
+                    "shell_command": "open -a 'Mochi.app'"
                   }
                 ],
-                "description": "Open -a 'Reflect.app'",
+                "description": "Open -a 'Mochi.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "m",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -697,39 +362,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Reflect.app'"
+                    "shell_command": "open -a 'Figma.app'"
                   }
                 ],
-                "description": "Open -a 'Reflect.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_o",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Finder.app'"
-                  }
-                ],
-                "description": "Open -a 'Finder.app'",
+                "description": "Open -a 'Figma.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "f",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -745,15 +386,39 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Texts.app'"
+                    "shell_command": "open -a 'Telegram.app'"
                   }
                 ],
-                "description": "Open -a 'Texts.app'",
+                "description": "Open -a 'Telegram.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_o",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Messages.app'"
+                  }
+                ],
+                "description": "Open -a 'Messages.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "i",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -777,7 +442,7 @@
                 "from": {
                   "key_code": "p",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -801,7 +466,7 @@
                 "from": {
                   "key_code": "a",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -817,15 +482,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open Texts"
+                    "shell_command": "open https://web.whatsapp.com"
                   }
                 ],
-                "description": "Open Texts",
+                "description": "Open https://web.whatsapp.com",
                 "type": "basic",
                 "from": {
                   "key_code": "w",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -849,7 +514,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -873,8 +538,11 @@
                 "from": {
                   "key_code": "w",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -895,16 +563,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_o",
@@ -929,11 +587,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
                   }
                 ]
               },
@@ -951,7 +604,7 @@
                 "from": {
                   "key_code": "semicolon",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -965,17 +618,21 @@
                 ]
               },
               {
+                "description": "Window: First Third",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=previous-display"
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_control"
+                    ]
                   }
                 ],
-                "description": "Window: previous-display",
                 "type": "basic",
                 "from": {
                   "key_code": "y",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -989,41 +646,21 @@
                 ]
               },
               {
+                "description": "Window: Top Half",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=next-display"
-                  }
-                ],
-                "description": "Window: next-display",
-                "type": "basic",
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "optional": [
-                      "any"
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_command"
                     ]
                   }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_w",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -g rectangle://execute-action?name=top-half"
-                  }
                 ],
-                "description": "Window: top-half",
                 "type": "basic",
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1037,17 +674,21 @@
                 ]
               },
               {
+                "description": "Window: Bottom Half",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=bottom-half"
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_command"
+                    ]
                   }
                 ],
-                "description": "Window: bottom-half",
                 "type": "basic",
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1061,17 +702,49 @@
                 ]
               },
               {
+                "description": "Window: Last Third",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=left-half"
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_control"
+                    ]
                   }
                 ],
-                "description": "Window: left-half",
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Window: Left Half",
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_command"
+                    ]
+                  }
+                ],
                 "type": "basic",
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1085,17 +758,21 @@
                 ]
               },
               {
+                "description": "Window: Right Half",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=right-half"
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "right_option",
+                      "right_command"
+                    ]
                   }
                 ],
-                "description": "Window: right-half",
                 "type": "basic",
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1109,17 +786,21 @@
                 ]
               },
               {
+                "description": "Window: Full Screen",
                 "to": [
                   {
-                    "shell_command": "open -g rectangle://execute-action?name=maximize"
+                    "key_code": "f",
+                    "modifiers": [
+                      "right_option",
+                      "right_command"
+                    ]
                   }
                 ],
-                "description": "Window: maximize",
                 "type": "basic",
                 "from": {
                   "key_code": "f",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1147,7 +828,7 @@
                 "from": {
                   "key_code": "u",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1174,7 +855,7 @@
                 "from": {
                   "key_code": "i",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1201,7 +882,7 @@
                 "from": {
                   "key_code": "n",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1228,7 +909,7 @@
                 "from": {
                   "key_code": "b",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1255,7 +936,36 @@
                 "from": {
                   "key_code": "m",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "description": "Window: Next display",
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "right_control",
+                      "right_option",
+                      "right_command"
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1279,8 +989,11 @@
                 "from": {
                   "key_code": "s",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -1301,16 +1014,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_o",
@@ -1335,11 +1038,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
                   }
                 ]
               },
@@ -1353,7 +1051,7 @@
                 "from": {
                   "key_code": "u",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1376,7 +1074,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1399,7 +1097,7 @@
                 "from": {
                   "key_code": "i",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1422,7 +1120,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1449,7 +1147,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1472,7 +1170,7 @@
                 "from": {
                   "key_code": "p",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1495,103 +1193,7 @@
                 "from": {
                   "key_code": "semicolon",
                   "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/thomas/elgato-key-light/toggle?launchType=background"
-                  }
-                ],
-                "description": "Open raycast://extensions/thomas/elgato-key-light/toggle?launchType=background",
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/yakitrak/do-not-disturb/toggle?launchType=background"
-                  }
-                ],
-                "description": "Open raycast://extensions/yakitrak/do-not-disturb/toggle?launchType=background",
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/raycast/system/toggle-system-appearance"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/system/toggle-system-appearance",
-                "type": "basic",
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/raycast/system/open-camera"
-                  }
-                ],
-                "description": "Open raycast://extensions/raycast/system/open-camera",
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1609,15 +1211,62 @@
                   {
                     "key_code": "spacebar",
                     "modifiers": [
-                      "left_option"
+                      "right_control",
+                      "right_command"
                     ]
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "v",
+                  "key_code": "e",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "curl -H 'Content-Type: application/json' --request PUT --data '{ \"numberOfLights\": 1, \"lights\": [ { \"on\": 1, \"brightness\": 100, \"temperature\": 215 } ] }' http://192.168.8.84:9123/elgato/lights"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "curl -H 'Content-Type: application/json' --request PUT --data '{ \"numberOfLights\": 1, \"lights\": [ { \"on\": 0, \"brightness\": 100, \"temperature\": 215 } ] }' http://192.168.8.84:9123/elgato/lights"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1641,8 +1290,11 @@
                 "from": {
                   "key_code": "v",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -1663,16 +1315,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_o",
@@ -1697,11 +1339,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
                   }
                 ]
               },
@@ -1715,7 +1352,7 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1738,7 +1375,7 @@
                 "from": {
                   "key_code": "j",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1761,7 +1398,7 @@
                 "from": {
                   "key_code": "k",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1784,7 +1421,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1810,7 +1447,7 @@
                 "from": {
                   "key_code": "m",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1836,7 +1473,7 @@
                 "from": {
                   "key_code": "s",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1863,7 +1500,7 @@
                 "from": {
                   "key_code": "d",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1886,7 +1523,7 @@
                 "from": {
                   "key_code": "u",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1909,7 +1546,7 @@
                 "from": {
                   "key_code": "i",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -1933,8 +1570,11 @@
                 "from": {
                   "key_code": "c",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -1955,16 +1595,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_o",
@@ -1989,11 +1619,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
                   }
                 ]
               },
@@ -2007,7 +1632,7 @@
                 "from": {
                   "key_code": "p",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2030,7 +1655,7 @@
                 "from": {
                   "key_code": "n",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2053,7 +1678,7 @@
                 "from": {
                   "key_code": "b",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2077,8 +1702,11 @@
                 "from": {
                   "key_code": "r",
                   "modifiers": {
-                    "optional": [
-                      "any"
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
                     ]
                   }
                 },
@@ -2099,16 +1727,6 @@
                   }
                 ],
                 "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_b",
-                    "value": 0
-                  },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_o",
@@ -2133,11 +1751,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_c",
                     "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper",
-                    "value": 1
                   }
                 ]
               },
@@ -2152,7 +1765,7 @@
                 "from": {
                   "key_code": "1",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2176,55 +1789,7 @@
                 "from": {
                   "key_code": "2",
                   "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_r",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/thomas/color-picker/pick-color"
-                  }
-                ],
-                "description": "Open raycast://extensions/thomas/color-picker/pick-color",
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_r",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://script-commands/dismiss-notifications"
-                  }
-                ],
-                "description": "Open raycast://script-commands/dismiss-notifications",
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2248,7 +1813,7 @@
                 "from": {
                   "key_code": "l",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2264,15 +1829,15 @@
               {
                 "to": [
                   {
-                    "shell_command": "open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+                    "shell_command": "open raycast://extensions/raycast/emoji/search-emoji"
                   }
                 ],
-                "description": "Open raycast://extensions/raycast/emoji-symbols/search-emoji-symbols",
+                "description": "Open raycast://extensions/raycast/emoji/search-emoji",
                 "type": "basic",
                 "from": {
                   "key_code": "e",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2294,9 +1859,9 @@
                 "description": "Open raycast://extensions/raycast/raycast/confetti",
                 "type": "basic",
                 "from": {
-                  "key_code": "p",
+                  "key_code": "c",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2320,7 +1885,7 @@
                 "from": {
                   "key_code": "a",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2344,7 +1909,7 @@
                 "from": {
                   "key_code": "s",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2368,7 +1933,7 @@
                 "from": {
                   "key_code": "h",
                   "modifiers": {
-                    "optional": [
+                    "mandatory": [
                       "any"
                     ]
                   }
@@ -2378,30 +1943,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Change Backspace to Spacebar when Minecraft is focused",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "delete_or_backspace"
-                },
-                "to": [
-                  {
-                    "key_code": "spacebar"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "file_paths": [
-                      "^/Users/mxstbr/Library/Application Support/minecraft/runtime/java-runtime-gamma/mac-os-arm64/java-runtime-gamma/jre.bundle/Contents/Home/bin/java$"
-                    ]
                   }
                 ]
               }
